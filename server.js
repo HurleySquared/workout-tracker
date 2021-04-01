@@ -1,9 +1,9 @@
 const express = require("express");
-const mongojs = require("mongojs");
-const logger = require("morgan");
-const app = express();
+const mongoose = require("mongoose");
 
-app.use(logger("dev"));
+const PORT = process.env.PORT || 3000;
+
+const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -13,9 +13,11 @@ app.use(express.static("public"));
 const databaseUrl = "workouts";
 const collections = ["excercises"];
 
-const db = mongojs(databaseUrl, collections);
-db.on("erro", error => {
-  console.log("Database Error occurred:", error);
-});
+mongoose.connect(process.env.MONGDB_URI || "mongodb://localhost/workouts")
 
 // Fill out routes for workouts
+app.use(require("/api.js"))
+
+app.listen(3000, () => {
+  console.log("App running on", PORT)
+})
