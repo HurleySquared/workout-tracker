@@ -10,7 +10,7 @@ Save and track your fitness goals through out the week with this workout tracker
 - Node.js
 
 ## Deployed Application
-[Heroku Link]()
+[Heroku Link](https://eric-workout-tracker-01.herokuapp.com/?id=606777397fcdd7026d074097)
 
 ## GitHub Repo
 [Workout Tracker](https://github.com/HurleySquared/workout-tracker)
