@@ -13,10 +13,7 @@ Save and track your fitness goals through out the week with this workout tracker
 [Heroku Link]()
 
 ## GitHub Repo
-[Workout Tracker]()
-
-## Screenshot of Workout Tracker
-![Workout Tracker]()
+[Workout Tracker](https://github.com/HurleySquared/workout-tracker)
 
 ## Contributions
 - ***Trilogy Education Services, LLC*** for the starter public and seed folders

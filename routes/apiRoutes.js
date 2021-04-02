@@ -3,7 +3,7 @@ const { Workout } = require('../models');
 const db = require("../models");
 
 router.get("/api/workouts", (req, res) => {
-  db.Workout.find({})
+  Workout.find({})
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -12,8 +12,8 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-router.put("/api/workouts/:id", ({ body }, res) => {
-  db.Workout.findOneAndUpdate({ _id: body.id },
+router.put("/api/workouts/:id", ({ body, params }, res) => {
+  Workout.findOneAndUpdate({ _id: params.id },
     { $push: { exercises: body }}, 
     { new: true }, (err, workouts) => {
       if (err) throw err;
@@ -22,7 +22,7 @@ router.put("/api/workouts/:id", ({ body }, res) => {
 });
 
 router.post("/api/workouts", ({ body }, res) => {
-  db.Workout.create(body)
+  Workout.create(body)
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
@@ -32,7 +32,7 @@ router.post("/api/workouts", ({ body }, res) => {
 });
 
 router.get("/api/workouts/range", ({ body }, res) => {
-  db.Workout.create(body)
+  Workout.find({ body })
     .then(dbWorkout => {
       res.json(dbWorkout);
     })
